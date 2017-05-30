@@ -1,4 +1,4 @@
-FROM docker
+FROM docker:17
 
 ENV PATH node_modules/.bin:$PATH
 
