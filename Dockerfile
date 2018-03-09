@@ -1,6 +1,7 @@
 FROM docker:18.02-git
 
 ENV NODE_VERSION 9.7.1
+ENV PATH node_modules/.bin:$PATH
 
 RUN addgroup -g 1000 node \
     && adduser -u 1000 -G node -s /bin/sh -D node \
@@ -8,9 +9,9 @@ RUN addgroup -g 1000 node \
         libstdc++ \
         python \
         bash \
+        curl \
     && apk add --no-cache --virtual .build-deps \
         binutils-gold \
-        curl \
         g++ \
         gcc \
         gnupg \
@@ -65,6 +66,9 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apk del .build-deps-yarn
+
+RUN curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose \
+    && chmod +x /usr/local/bin/docker-compose
 
 CMD [ "node" ]
 
