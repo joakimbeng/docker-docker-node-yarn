@@ -8,6 +8,7 @@ RUN apk add --no-cache \
   curl \
   python \
   py-pip \
+  make \
   git \
   openssh \
   && pip install docker-compose
