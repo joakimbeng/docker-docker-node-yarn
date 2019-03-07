@@ -1,5 +1,5 @@
-FROM docker:18.06.1 as docker
-FROM mhart/alpine-node:10.12.0
+FROM docker:18.09.3 as docker
+FROM mhart/alpine-node:10.15.3
 
 COPY --from=docker /usr/local/bin/docker /usr/local/bin/docker
 
