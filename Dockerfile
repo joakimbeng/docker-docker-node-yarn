@@ -16,6 +16,7 @@ RUN apk add --no-cache \
   g++ \
   git \
   openssh \
+  openssl-dev \
   && pip install docker-compose
 
 CMD ["node"]
