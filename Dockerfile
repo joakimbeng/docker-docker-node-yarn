@@ -11,6 +11,7 @@ RUN apk add --no-cache \
   make \
   gcc \
   libc6-compat \
+  libffi-dev \
   g++ \
   git \
   openssh \
