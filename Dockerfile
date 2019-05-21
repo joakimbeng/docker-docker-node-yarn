@@ -1,4 +1,4 @@
-FROM docker:18.09.3 as docker
+FROM docker:18.09.6 as docker
 FROM mhart/alpine-node:10.15.3
 
 COPY --from=docker /usr/local/bin/docker /usr/local/bin/docker
@@ -10,6 +10,7 @@ RUN apk add --no-cache \
   py-pip \
   make \
   gcc \
+  libc6-compat \
   g++ \
   git \
   openssh \
