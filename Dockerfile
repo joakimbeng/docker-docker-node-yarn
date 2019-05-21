@@ -7,6 +7,7 @@ RUN apk add --no-cache \
   bash \
   curl \
   python \
+  python-dev \
   py-pip \
   make \
   gcc \
